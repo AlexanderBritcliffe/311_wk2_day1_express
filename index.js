@@ -1,10 +1,10 @@
 
 const express = require('express')
-const body = require('body-parser')
 const app = express()
+const bodyParser = require('body-parser')
 const port = process.env.PORT || 4000
-
 const { users } = require('./state')
+app.use(bodyParser.json());
 
 /* BEGIN - create routes here */
 app.get("/users",(req,res)=> {
