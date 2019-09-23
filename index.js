@@ -53,6 +53,25 @@ app.post('/users', (req, res) => {
   res.json(newUser)
 })
 
+app.get('/users/:userId', (req, res) => {
+  let id = users.filter (x => x._id == req.params.userId)
+  res.json(id[0])
+})
+
+app.put('/users/:userId', (req, res) => {
+  let id = users.filter (x => x.id == req.params.userId)
+  id[0].name = 'Johnny Christmas'
+  res.json(id[0])
+})
+
+app.delete('/users/:userId', (req, res) => {
+  let id = users.filter (x => x.id == req.params.userId)
+  id[0].isActive = false;
+  res.send('deleted')
+})
+
+
+
 
 
 
